@@ -1,0 +1,14 @@
+그냥 설치하면됨.
+
+data source name : Mysql_test
+description : Mysql Local DB
+
+TCP/IP Server : 127.0.0.1 port 3306
+
+user : root
+password : 설정한걸로 (1234 or moble)
+Database : yolo_webapp_db 
+이렇게 넣고 테스트 해보기.
+
+다르게 넣어두 되긴 하는데;;;; mfc내에서 변경해야할 사항들이 많아짐
+

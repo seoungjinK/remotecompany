@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}직원 대시보드{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/employee.css') }}">
+{% endblock %}
+
+{% block content %}
+<div style="display: none;">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas"></canvas>
+</div>
+
+<div class="employee-container">
+    <header class="employee-header">
+        <div class="welcome-message">
+            <h1>{{ username }}님, 환영합니다.</h1>
+            <p>오늘도 좋은 하루 보내세요!</p>
+        </div>
+        <div class="header-actions">
+    {% if mfc_token %}
+      <a href="themoon-mfc://auth?token={{ mfc_token }}" class="btn btn-primary">
+        데스크톱 프로그램 실행
+      </a>
+    {% endif %}
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">로그아웃</a>
+</div>
+    </header>
+
+    {# 원래 버튼이 있던 자리는 비워둡니다. #}
+    <h1>환영합니다, {{ display_name }} 님!</h1>
+
+    <main class="dashboard-main">
+        <div class="video-panel">
+            <div class="video-wrapper">
+                <h3>처리된 영상 (객체 탐지)</h3>
+                <div id="processed-container">
+                    <img id="processed_image" alt="처리된 영상이 여기에 표시됩니다.">
+                    <div id="loading-message" class="loading-hidden">서버에서 이미지를 처리 중입니다...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="employee-footer">
+        <div class="status-control-panel">
+            <h4>내 상태 변경</h4>
+            <button id="btn-online" class="status-btn btn-on">근무중</button>
+            <button id="btn-away" class="status-btn btn-away">자리 비움</button>
+        </div>
+    </footer>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/employee.js') }}"></script>
+{% endblock %}

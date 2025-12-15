@@ -1,0 +1,12 @@
+일단 저 git설치 파일로 git  을 설치
+원래 있던 cert.pem과 key.pem삭제
+
+flask파일 있는곳 (app.py) 있는 파일에서 오른쪽 클릭
+open git bash here을 클릭
+
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+
+
+이것을 입력하고, 막 앤터를 눌러서 넘기면 됨,cert.pem이랑 key.pem이게 생성됬는지 확인
+
+완료.

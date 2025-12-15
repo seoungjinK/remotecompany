@@ -1,0 +1,8 @@
+vcpkg설치(visual studio) 
+파워쉘을 키고 설치하면 됨.
+
+git clone https://github.com/microsoft/vcpkg .\vcpkg\bootstrap-vcpkg.bat
+
+.\vcpkg\vcpkg install cpprestsdk[core]:x64-windows
+
+.\vcpkg\vcpkg integrate install
